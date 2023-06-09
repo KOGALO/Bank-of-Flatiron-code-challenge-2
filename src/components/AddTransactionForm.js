@@ -3,7 +3,7 @@ import React, { useState } from "react";
 function AddTransactionForm({ onAddTransaction }) {
   const [formData, setFormData] = useState({
     date: "",
-    description: "",
+    description: "", 
     category: "",
     amount: 0,
   });
