@@ -1,12 +1,13 @@
 import React from "react";
 import TransactionsList from "./TransactionsList";
-import Search from "./Search";
 import AddTransactionForm from "./AddTransactionForm";
+import Search from "./Search";
 
 function AccountContainer() {
   return (
+
     <div>
-      <Search />
+      <Search/>
       <AddTransactionForm />
       <TransactionsList />
     </div>
