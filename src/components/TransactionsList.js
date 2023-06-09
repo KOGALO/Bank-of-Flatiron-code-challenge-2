@@ -1,28 +1,40 @@
 import React from "react";
 import Transaction from "./Transaction";
 
-function TransactionsList() {
+function TransactionList({ transactions, onSort, onDelete }) {
   return (
     <table className="ui celled striped padded table">
-      <tbody>
+      <thead>
         <tr>
           <th>
-            <h3 className="ui center aligned header">Date</h3>
+            <h3 className="ui center aligned header">
+              <button onClick={() => onSort("date")}>Sort by Date</button>
+            </h3>
           </th>
           <th>
-            <h3 className="ui center aligned header">Description</h3>
+            <h3 className="ui center aligned header">
+              <button onClick={() => onSort("description")}>Sort by Description</button>
+            </h3>
           </th>
           <th>
-            <h3 className="ui center aligned header">Category</h3>
+            <h3 className="ui center aligned header">
+              <button onClick={() => onSort("category")}>Sort by Category</button>
+            </h3>
           </th>
           <th>
-            <h3 className="ui center aligned header">Amount</h3>
+            <h3 className="ui center aligned header">
+              <button onClick={() => onSort("amount")}>Sort by Amount</button>
+            </h3>
           </th>
         </tr>
-        {/* render a list of <Transaction> components here */}
+      </thead>
+      <tbody>
+        {transactions.map((transaction) => (
+          <Transaction key={transaction.id} transaction={transaction} />
+        ))}
       </tbody>
     </table>
   );
 }
 
-export default TransactionsList;
+export default TransactionList;
