@@ -4,10 +4,10 @@ import AddTransactionForm from "./AddTransactionForm";
 import TransactionList from "./TransactionsList";
 
 function App() {
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm, ] = useState("");
   const [transactions, setTransactions] = useState([]);
 
-  const handleSearch = (searchTerm) => {
+  const handleSearch = (filteredTransactions) => {
     setSearchTerm(searchTerm);
   };
 
