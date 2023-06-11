@@ -1,7 +1,14 @@
 import React from "react";
 
-function Transaction({ transaction }) {
-  const { date, description, category, amount } = transaction;
+function Transaction({ date, transaction, description, category, amount, handleDeletedTransaction}) {
+
+  function handleDelete(){
+    fetch(`http://localhost:8001/transactions/${transaction.id}`,{
+      method:"DELETE",
+    })
+    .then(resp=>resp.json())
+    .then(deleted=>handleDeletedTransaction(deleted))
+  }
 
   return (
     <tr>
@@ -9,6 +16,7 @@ function Transaction({ transaction }) {
       <td>{description}</td>
       <td>{category}</td>
       <td>{amount}</td>
+      <td><button onClick={handleDelete}>DELETE</button></td>
     </tr>
   );
 }
